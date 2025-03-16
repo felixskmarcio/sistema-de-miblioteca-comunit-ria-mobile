@@ -4,14 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import BookListScreen from '../screens/BookListScreen';
 
+// Criar o navegador de pilha
 const Stack = createStackNavigator();
 
 function AppNavigator() {
   return (
+    // Container principal de navegação
     <NavigationContainer>
+      {/* Configuração do navegador de pilha */}
       <Stack.Navigator 
-        initialRouteName="Home"
+        initialRouteName="Home" // Define a tela inicial
         screenOptions={{
+          // Estilo padrão do cabeçalho para todas as telas
           headerStyle: {
             backgroundColor: '#4a90e2',
           },
@@ -21,6 +25,7 @@ function AppNavigator() {
           },
         }}
       >
+        {/* Tela inicial */}
         <Stack.Screen 
           name="Home" 
           component={HomeScreen}
@@ -28,6 +33,7 @@ function AppNavigator() {
             title: 'Início'
           }}
         />
+        {/* Tela de lista de livros */}
         <Stack.Screen 
           name="BookList" 
           component={BookListScreen}

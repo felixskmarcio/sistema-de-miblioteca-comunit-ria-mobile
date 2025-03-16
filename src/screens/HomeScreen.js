@@ -3,9 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   return (
+    // Container principal
     <View style={styles.container}>
+      {/* Título de boas-vindas */}
       <Text style={styles.title}>Bem-vindo ao App</Text>
+      
+      {/* Container dos botões */}
       <View style={styles.buttonContainer}>
+        {/* Botão para navegação à lista de livros */}
         <TouchableOpacity 
           style={styles.button}
           onPress={() => navigation.navigate('BookList')}
@@ -13,6 +18,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.buttonText}>Lista de Livros</Text>
         </TouchableOpacity>
 
+        {/* Botão para navegação ao perfil */}
         <TouchableOpacity 
           style={styles.button}
           onPress={() => navigation.navigate('Profile')}
@@ -24,6 +30,7 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+// Estilos da tela
 const styles = StyleSheet.create({
   container: {
     flex: 1,
