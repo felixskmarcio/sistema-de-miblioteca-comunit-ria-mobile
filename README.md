@@ -134,7 +134,7 @@ src/
 
 ```bash
 git clone https://github.com/felixskmarcio/sistema-de-biblioteca-comunitaria-mobile.git
-cd sistema-de-biblioteca-comunitaria-mobile
+cd sistema-de-miblioteca-comunitaria-mobile
 ```
 
 ### 2️⃣ Instale as dependências
