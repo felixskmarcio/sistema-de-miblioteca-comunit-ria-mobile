@@ -1,62 +1,90 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'; // ✅ View e Text
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useTheme } from '../hooks/useTheme';
+import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
+  const theme = useTheme();
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.colors.background,
+    },
+    title: {
+      ...theme.typography.h1,
+      color: theme.colors.text.primary,
+      marginBottom: 30,
+    },
+    buttonContainer: {
+      width: '80%',
+    },
+    button: {
+      backgroundColor: theme.colors.primary,
+      padding: 15,
+      borderRadius: 8,
+      marginVertical: 10,
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
+    buttonText: {
+      ...theme.typography.button,
+      color: theme.colors.text.primary,
+      marginLeft: 8,
+    },
+    themeToggle: {
+      position: 'absolute',
+      top: 20,
+      right: 20,
+      padding: 10,
+    }
+  });
+
   return (
-    // Container principal - View 
     <View style={styles.container}>
+      <TouchableOpacity 
+        style={styles.themeToggle}
+        onPress={theme.toggleTheme}
+      >
+        <Ionicons 
+          name={theme.isDark ? "sunny" : "moon"} 
+          size={24} 
+          color={theme.colors.text.primary}
+        />
+      </TouchableOpacity>
+
       <Text style={styles.title}>Biblioteca Comunitária</Text>
       
-      {/* Container dos botões */}
-      <View style={styles.buttonContainer}> // ✅ Button + onPress
+      <View style={styles.buttonContainer}>
         <TouchableOpacity 
           style={styles.button}
           onPress={() => navigation.navigate('BookList')}
         >
+          <Ionicons 
+            name="book" 
+            size={24} 
+            color={theme.colors.text.primary}
+          />
           <Text style={styles.buttonText}>Lista de Livros</Text>
         </TouchableOpacity>
 
-        {/* Botão para navegação ao perfil */}
         <TouchableOpacity 
           style={styles.button}
           onPress={() => navigation.navigate('Profile')}
         >
+          <Ionicons 
+            name="person" 
+            size={24} 
+            color={theme.colors.text.primary}
+          />
           <Text style={styles.buttonText}>Perfil</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
-
-// Estilos da tela
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#333',
-  },
-  buttonContainer: {
-    width: '80%',
-  },
-  button: {
-    backgroundColor: '#4a90e2',
-    padding: 15,
-    borderRadius: 8,
-    marginVertical: 10,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default HomeScreen;
