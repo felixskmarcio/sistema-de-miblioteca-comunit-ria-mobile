@@ -9,13 +9,11 @@ const Stack = createStackNavigator();
 
 function AppNavigator() {
   return (
-    // Container principal de navegação
     <NavigationContainer>
       {/* Configuração do navegador de pilha */}
       <Stack.Navigator 
-        initialRouteName="Home" // Define a tela inicial
+        initialRouteName="Home"
         screenOptions={{
-          // Estilo padrão do cabeçalho para todas as telas
           headerStyle: {
             backgroundColor: '#4a90e2',
           },

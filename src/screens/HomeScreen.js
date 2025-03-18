@@ -1,16 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'; // ✅ View e Text
 
 const HomeScreen = ({ navigation }) => {
   return (
-    // Container principal
+    // Container principal - View 
     <View style={styles.container}>
-      {/* Título de boas-vindas */}
-      <Text style={styles.title}>Bem-vindo ao App</Text>
+      <Text style={styles.title}>Biblioteca Comunitária</Text>
       
       {/* Container dos botões */}
-      <View style={styles.buttonContainer}>
-        {/* Botão para navegação à lista de livros */}
+      <View style={styles.buttonContainer}> // ✅ Button + onPress
         <TouchableOpacity 
           style={styles.button}
           onPress={() => navigation.navigate('BookList')}
